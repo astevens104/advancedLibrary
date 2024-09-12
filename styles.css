@@ -257,6 +257,13 @@ FEATURES
     transform: scale(1.03);
 }
 
+.book__description {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 24px;
+}
+
 .book__title {
     font-size: 20px;
     margin-bottom: 8px;
@@ -267,6 +274,23 @@ FEATURES
 }
 
 .book__ratings {
-    margin: 8px;
+    margin-bottom: 8px;
     color: #fabf2a;
+}
+
+.book__price--normal {
+    text-decoration: line-through;
+    padding-right: 6px;
+    color: #bfbfbf;
+}
+
+/* 
+
+RECENT 
+
+*/
+
+.books__recent {
+    display: flex;
+    flex-wrap: wrap;
 }
