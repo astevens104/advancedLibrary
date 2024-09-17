@@ -23,23 +23,61 @@ nav {
 
 img {
     width: 100%;
-    height: 100%;
-    max-height: 50vh;
-    padding: 20px;
+    height: 50%;
 }
 
 p {
     line-height: 1.5;
 }
 
-.nav__container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 24px;
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+h1 {
+    font-size: 56px;
+    color: #7342d6;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+
+
+button {
+    cursor: pointer;
+    text-decoration:none
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.btn {
+    background-color: #7342d6;
+    color: white;
+    padding: 12px 24px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+    text-decoration: none;
 }
 
 .purple {
@@ -50,12 +88,14 @@ p {
     width: 160px;
 }
 
-ul {
+.nav__container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
     display: flex;
-}
-
-li {
-    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .nav__link {
@@ -86,6 +126,7 @@ li {
     text-align: center;
     border: none;
     color: #7342d6;
+    display: none;
 }
 
 .menu__backdrop {
@@ -99,6 +140,19 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 300ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.menu--open .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu--open {
+    max-height: 100vh;
+    overflow-y: hidden;
 }
 
 .menu__links {
@@ -155,53 +209,9 @@ header {
     align-items: center;
 }
 
-h1 {
-    font-size: 56px;
-    color: #7342d6;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-button {
-    cursor: pointer;
-    text-decoration:none
-}
-
-button:active {
-    transform: translateY(2px);
-}
-
-.btn {
-    background-color: #7342d6;
-    color: white;
-    padding: 12px 24px;
-    font-size: 20px;
-    border-radius: 4px;
-    border: none;
-    text-decoration: none;
-}
-
 .header__img--wrapper {
     padding: 20px;
     z-index: 2;
-}
-
-.section__title {
-    padding-top: 48px;
 }
 
 .container {
@@ -226,6 +236,7 @@ HIGHTLIGHTS
 
 #highlights {
     position: relative;
+    max-width: 100vw;
 }
 
 #highlights:before,
@@ -254,6 +265,7 @@ HIGHTLIGHTS
 
 .highlight__wrapper {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .highlight {
@@ -286,6 +298,7 @@ HIGHTLIGHTS
 .highlight__subtitle {
     font-size: 20px;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 /* 
@@ -301,6 +314,7 @@ FEATURES
 
 .books {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .book {
@@ -311,26 +325,18 @@ FEATURES
 .book__img {
     max-height: 380px;
     transition: all 300ms ease;
-    cursor: no-drop;
+    cursor: not-allowed;
 }
 
 .book__img--wrapper {
     margin-bottom: 8px;
     border-radius: 4px;
-    border: none;
     overflow: hidden;
     display: flex;
 }
 
 .book:hover .book__img {
     transform: scale(1.03);
-}
-
-.book__description {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    padding-left: 24px;
 }
 
 .book__title {
@@ -355,7 +361,7 @@ FEATURES
 
 /* 
 
-RECENT 
+EXPLORE 
 
 */
 
@@ -363,12 +369,6 @@ RECENT
     display: flex;
     flex-wrap: wrap;
 }
-
-/* 
-
-EXPLORE 
-
-*/
 
 #explore {
     background-color: rgba(115, 66, 214, 0.1)
@@ -414,6 +414,7 @@ footer {
 .footer__logo--img {
     width: 160px;
     filter: grayscale(1) invert(1);
+    margin-top: 24px;
 }
 
 .footer__link,
@@ -431,4 +432,57 @@ footer {
 
 .footer__copyright {
     margin-bottom: 24px;
+}
+
+/* 
+
+SMALL PHONES, TABLETS, LARGE SMARTPHONES 
+
+*/
+
+@media (max-width: 768px) {
+    .header__description {
+        padding: 0 24px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+
+    .book {
+        width: 50%;
+    }
+}
+
+/* 
+
+SMARTPHONES 
+
+*/
+
+@media (max-width: 550px) {
+    .nav__links {
+        display: none;
+    }
+
+    .btn__menu {
+        display: block;
+    }
+
+    .highlight {
+        width: 100%;
+    }
+
+    .hightlight:not(:last-child) {
+        margin-bottom: 24px;
+    }
+
 }
